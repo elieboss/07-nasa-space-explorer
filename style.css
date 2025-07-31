@@ -15,7 +15,14 @@ body {
   overflow-x: hidden;
 }
 
-/* Sparkle stars background animation */
+/* Mobile padding adjustment */
+@media (max-width: 768px) {
+  body {
+    padding: 10px;
+  }
+}
+
+/* Sparkle stars background animation - KEEP THIS! */
 body::before {
   content: '';
   position: fixed;
@@ -49,6 +56,13 @@ body::before {
   z-index: 2;
 }
 
+/* Mobile container padding */
+@media (max-width: 768px) {
+  .container {
+    padding: 0 10px;
+  }
+}
+
 /* Header with sparkle accents */
 .site-header {
   display: flex;
@@ -77,6 +91,15 @@ body::before {
   50% { opacity: 0.5; }
 }
 
+/* Mobile header adjustments */
+@media (max-width: 480px) {
+  .site-header {
+    flex-direction: column;
+    gap: 10px;
+    padding: 15px 10px;
+  }
+}
+
 h1 {
   font-family: 'Helvetica Neue', Helvetica, sans-serif;
   font-weight: 300;
@@ -84,11 +107,33 @@ h1 {
   text-shadow: 0 2px 4px rgba(252, 61, 33, 0.3);
 }
 
-/* Logo */
+/* Mobile font scaling */
+@media (max-width: 768px) {
+  h1 {
+    font-size: 1.5rem;
+  }
+}
+
+@media (max-width: 480px) {
+  h1 {
+    font-size: 1.3rem;
+    text-align: center;
+  }
+}
+
+/* Logo - keep original size but adjust for mobile */
 .logo {
   width: 140px;
   margin-right: 15px;
   filter: brightness(1.2);
+}
+
+@media (max-width: 480px) {
+  .logo {
+    width: 100px;
+    margin-right: 0;
+    margin-bottom: 5px;
+  }
 }
 
 /* Date‐picker & button row */
@@ -201,6 +246,14 @@ button:hover {
   justify-content: center;
 }
 
+/* Mobile gallery adjustments */
+@media (max-width: 768px) {
+  .gallery {
+    gap: 15px;
+    padding: 10px;
+  }
+}
+
 /* Gallery items with dark styling */
 .gallery-item {
   flex: 1 1 100%;
@@ -238,6 +291,7 @@ button:hover {
   box-shadow: 0 8px 25px rgba(252, 61, 33, 0.2);
 }
 
+/* Keep original image dimensions */
 .gallery-item img {
   width: 100%;
   height: 200px;
@@ -257,6 +311,13 @@ button:hover {
 @media (min-width: 1000px) {
   .gallery-item {
     flex: 0 1 31%;
+  }
+}
+
+/* Two columns on tablet */
+@media (min-width: 768px) and (max-width: 999px) {
+  .gallery-item {
+    flex: 0 1 48%;
   }
 }
 
@@ -300,6 +361,18 @@ button:hover {
   font-size: 48px;
   margin-bottom: 20px;
   color: #FC3D21;
+}
+
+/* Mobile placeholder adjustments */
+@media (max-width: 768px) {
+  .placeholder {
+    padding: 40px 20px;
+  }
+  
+  .placeholder-icon {
+    font-size: 36px;
+    margin-bottom: 15px;
+  }
 }
 
 /* Modal styles */
@@ -390,5 +463,108 @@ button:hover {
   
   #modalImage {
     max-height: 50vh;
+  }
+}
+
+/* Video container styles - keep original dimensions */
+.video-container {
+  position: relative;
+  width: 100%;
+  height: 200px;
+  border-radius: 8px;
+  overflow: hidden;
+  border: 2px solid #061f4a;
+}
+
+.gallery-video {
+  width: 100%;
+  height: 100%;
+  border: none;
+}
+
+/* Video placeholder - keep original dimensions */
+.video-placeholder {
+  position: relative;
+  width: 100%;
+  height: 200px;
+  background: linear-gradient(135deg, #061f4a, #2A2A2A);
+  border-radius: 8px;
+  border: 2px solid #061f4a;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+
+.video-placeholder:hover {
+  background: linear-gradient(135deg, #FC3D21, #061f4a);
+  transform: scale(1.02);
+}
+
+.video-icon {
+  font-size: 48px;
+  margin-bottom: 10px;
+  color: #FC3D21;
+}
+
+.play-button {
+  font-size: 24px;
+  color: #F1F1F1;
+  background: rgba(252, 61, 33, 0.8);
+  border-radius: 50%;
+  width: 50px;
+  height: 50px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  position: absolute;
+  animation: pulse 2s ease-in-out infinite;
+}
+
+/* Video and content links styling */
+.video-link,
+.content-link {
+  display: inline-block;
+  color: #FC3D21;
+  text-decoration: none;
+  font-weight: 500;
+  padding: 8px 12px;
+  border: 1px solid #FC3D21;
+  border-radius: 6px;
+  margin-top: 10px;
+  transition: all 0.3s ease;
+  text-align: center;
+}
+
+.video-link:hover,
+.content-link:hover {
+  background-color: #FC3D21;
+  color: #F1F1F1;
+  transform: translateY(-2px);
+}
+
+.video-note {
+  color: #FC3D21;
+  font-size: 12px;
+  font-style: italic;
+  margin-top: 5px;
+}
+
+/* Mobile touch-friendly adjustments for links only */
+@media (max-width: 480px) {
+  .video-link,
+  .content-link {
+    padding: 12px 20px;
+    width: 100%;
+    box-sizing: border-box;
+  }
+}
+  .content-link {
+    padding: 12px 20px;
+    font-size: 15px;
+    width: 100%;
+    box-sizing: border-box;
   }
 }
